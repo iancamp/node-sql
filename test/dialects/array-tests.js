@@ -95,7 +95,7 @@ Harness.test({
   params: [1,2,3,2]
 });
 
-Harness.it({
+Harness.test({
   query: post.select(
     post.tags.existsKeyElement(Sql.array('nodejs', 'js', 'node'))
   ),
@@ -106,7 +106,7 @@ Harness.it({
   params: ['nodejs', 'js', 'node']
 });
 
-Harness.it({
+Harness.test({
   query: post.select(
     post.tags.existsAllKeyElements(Sql.array('nodejs', 'js'))
   ),
