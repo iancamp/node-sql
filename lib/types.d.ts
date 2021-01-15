@@ -178,6 +178,8 @@ declare module "node-sql-2" {
 		functions: {
 				LOWER<Name>(c:Column<Name, string>):Column<Name, string>
 		}
+		array(arr:T[]):BinaryNode
+		
 	}
 
 	interface BinaryNode {
@@ -213,6 +215,8 @@ declare module "node-sql-2" {
 		descending:OrderByValueNode
 		asc:OrderByValueNode
 		desc:OrderByValueNode
+		existsKeyElement(node:BinaryNode):BinaryNode
+		existsAllKeyElements(node:BinaryNode):BinaryNode
 	}
 
 	function define<Name extends string, T>(map:TableDefinition<Name, T>): Table<Name, T>;

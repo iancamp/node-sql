@@ -94,3 +94,25 @@ Harness.test({
   },
   params: [1,2,3,2]
 });
+
+Harness.test({
+  query: post.select(
+    post.tags.existsKeyElement(Sql.array('nodejs', 'js', 'node'))
+  ),
+  pg: {
+    text  : 'SELECT ("post"."tags" ?| ARRAY[$1, $2, $3]) FROM "post"',
+    string: 'SELECT ("post"."tags" ?| ARRAY[\'nodejs\', \'js\', \'node\']) FROM "post"'
+  },
+  params: ['nodejs', 'js', 'node']
+});
+
+Harness.test({
+  query: post.select(
+    post.tags.existsAllKeyElements(Sql.array('nodejs', 'js'))
+  ),
+  pg: {
+    text  : 'SELECT ("post"."tags" ?& ARRAY[$1, $2]) FROM "post"',
+    string: 'SELECT ("post"."tags" ?& ARRAY[\'nodejs\', \'js\']) FROM "post"'
+  },
+  params: ['nodejs', 'js']
+});
