@@ -215,8 +215,8 @@ declare module "node-sql-2" {
 		descending:OrderByValueNode
 		asc:OrderByValueNode
 		desc:OrderByValueNode
-		existsKeyElement(str:string):BinaryNode
-		existsAllKeyElements(str:string):BinaryNode
+		existsKeyElement(node:BinaryNode):BinaryNode
+		existsAllKeyElements(node:BinaryNode):BinaryNode
 	}
 
 	function define<Name extends string, T>(map:TableDefinition<Name, T>): Table<Name, T>;
