@@ -192,6 +192,7 @@ declare module "node-sql-2" {
 		in(arr:T[]):BinaryNode
 		in(subQuery:SubQuery<T>):BinaryNode
 		notIn(arr:T[]):BinaryNode
+		notIn(subQuery:SubQuery<T>):BinaryNode
 		equals(node: T|Column<any, T>):BinaryNode
 		notEquals(node: T|Column<any, T>):BinaryNode
 		gte(node: T|Column<any, T>):BinaryNode
